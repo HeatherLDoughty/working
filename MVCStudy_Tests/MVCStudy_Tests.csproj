@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE3E6C22-A258-4C1B-84DF-4C0F63E20F29}</ProjectGuid>
+    <ProjectGuid>{661CB8C5-CE21-415A-96B7-DA1567C56AD1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MVCStudy_Business</RootNamespace>
-    <AssemblyName>MVCStudy_Business</AssemblyName>
+    <RootNamespace>MVCStudy_Tests</RootNamespace>
+    <AssemblyName>MVCStudy_Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,6 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.8.2.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4">
+      <HintPath>..\packages\structuremap.3.1.6.186\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +54,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVCStudy_Attributes\MVCStudy_Attributes.csproj">
+      <Project>{8107ef19-9d56-473f-ac46-98db2ef8912c}</Project>
+      <Name>MVCStudy_Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVCStudy_Business\MVCStudy_Business.csproj">
+      <Project>{be3e6c22-a258-4c1b-84df-4c0f63e20f29}</Project>
+      <Name>MVCStudy_Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVCStudy_Data\MVCStudy_Data.csproj">
       <Project>{5741987a-597d-48b0-b958-c7ad743a1025}</Project>
       <Name>MVCStudy_Data</Name>

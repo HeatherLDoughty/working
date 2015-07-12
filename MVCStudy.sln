@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStudy_Data", "MVCStudy_D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStudy_Attributes", "MVCStudy_Attributes\MVCStudy_Attributes.csproj", "{8107EF19-9D56-473F-AC46-98DB2EF8912C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStudy_Tests", "MVCStudy_Tests\MVCStudy_Tests.csproj", "{661CB8C5-CE21-415A-96B7-DA1567C56AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{8107EF19-9D56-473F-AC46-98DB2EF8912C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8107EF19-9D56-473F-AC46-98DB2EF8912C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8107EF19-9D56-473F-AC46-98DB2EF8912C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661CB8C5-CE21-415A-96B7-DA1567C56AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661CB8C5-CE21-415A-96B7-DA1567C56AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661CB8C5-CE21-415A-96B7-DA1567C56AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661CB8C5-CE21-415A-96B7-DA1567C56AD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
