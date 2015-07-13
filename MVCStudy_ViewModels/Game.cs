@@ -16,7 +16,13 @@ namespace MVCStudy_ViewModels
 
        public int Flips { get; set; }
 
-       public int WinTimeTicks { get; set; }
+       public int WinTimeSeconds { get; set; }
+
+       [DisplayFormat(DataFormatString = "{0:mm:ss}")]
+       public DateTime WinTime
+       {
+           get { return DateTime.Now.Date.AddSeconds(WinTimeSeconds); }
+       }
 
        public int Matches
        {
@@ -26,13 +32,14 @@ namespace MVCStudy_ViewModels
        [DisplayFormat(DataFormatString="{0}%")]
        public int? Percentage 
        {
-            get{return Matches == 0 ? (int?)null : (int)(Flips / Matches);}
+           get { return Flips == 0 ? (int?)null : (int)(((double)Matches / (double)Flips) * 100); }
        }
 
        public int Score
        {
-           //TODO: include time calc in score
-            get{return Percentage.HasValue ? Cards.Count * Percentage.Value : 0;}
+           get { int tally = Percentage.HasValue ? Cards.Count * Percentage.Value - WinTimeSeconds : 0; 
+              return tally > 0 ? tally : 1;
+           }
        }
 
         public string UserName
