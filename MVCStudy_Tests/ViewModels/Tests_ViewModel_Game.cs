@@ -10,16 +10,15 @@ using System.ComponentModel.DataAnnotations;
 namespace MVCStudy_Tests.ViewModels
 {
     [TestFixture]
-   public class Tests_Game
+   public class Tests_ViewModel_Game
     {
-        private Game mGame;
+        private ViewModel_Game mGame;
         [SetUp]
         public void Setup()
         {
-            mGame = new Game();
-            mGame.Cards = new CardSet();
-            mGame.Cards.UniqueID = Guid.NewGuid();
-            mGame.Cards.AddRange(Enumerable.Range(0, 50).Select(x => new Card{SetID =  mGame.Cards.UniqueID, UniqueID = Guid.NewGuid()}));
+            mGame = new ViewModel_Game();
+            mGame.Cards = new ViewModel_CardSet();
+            mGame.Cards.AddRange(Enumerable.Range(0, 50).Select(x => new ViewModel_Card{UniqueID = Guid.NewGuid()}));
         }
 
         [Test]

@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CardSet.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="Card.cs" />
+    <Compile Include="ViewModel_CardSet.cs" />
+    <Compile Include="ViewModel_Game.cs" />
+    <Compile Include="ViewModel_Card.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="ViewModel_User.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MVCStudy_Attributes\MVCStudy_Attributes.csproj">

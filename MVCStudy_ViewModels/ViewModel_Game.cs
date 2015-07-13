@@ -7,12 +7,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVCStudy_ViewModels
 {
-    public class Game
+    public class ViewModel_Game
     {
        [Key]
        public Guid UniqueID { get; set; }
 
-       public CardSet Cards { get; set; }
+       public ViewModel_CardSet Cards { get; set; }
 
        public int Flips { get; set; }
 
@@ -24,15 +24,10 @@ namespace MVCStudy_ViewModels
            get { return DateTime.Now.Date.AddSeconds(WinTimeSeconds); }
        }
 
-       public int Matches
-       {
-           get { return Cards.Count(x => x.Matched);}
-       }
-
        [DisplayFormat(DataFormatString="{0}%")]
        public int? Percentage 
        {
-           get { return Flips == 0 ? (int?)null : (int)(((double)Matches / (double)Flips) * 100); }
+           get { return Flips == 0 ? (int?)null : (int)(((double)Cards.Count / (double)Flips) * 100); }
        }
 
        public int Score
@@ -47,20 +42,7 @@ namespace MVCStudy_ViewModels
             get { return User.Name; }
         }
 
-        public string HighScoreCardSet
-        {
-            get { return HighScoreGame.Cards.SetName; }
-        }
-
-        public int HighScore
-        {
-            get { return HighScoreGame.Score; }
-        }
-
         [ScaffoldColumn(false)]
-        public Game HighScoreGame { get; set; }
-
-        [ScaffoldColumn(false)]
-        public User User { get; set; }
+        public ViewModel_User User { get; set; }
     }
 }

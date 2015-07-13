@@ -71,8 +71,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests_noodle.cs" />
-    <Compile Include="ViewModels\Tests_Game.cs" />
-    <Compile Include="ViewModels\Tests_User.cs" />
+    <Compile Include="ViewModels\Tests_ViewModel_Game.cs" />
+    <Compile Include="ViewModels\Tests_ViewModel_User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

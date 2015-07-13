@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 namespace MVCStudy_ViewModels
 {
-    public class User
+    public class ViewModel_User
     {
         
         [Key]
@@ -23,11 +23,9 @@ namespace MVCStudy_ViewModels
         [Required(ErrorMessage="Password cannot be blank")]
         public string Password { get; set; }
 
-        //TODO: Confirm Password?
-
         public string HighScoreCardSet
         {
-            get { return HighScoreGame.Cards.SetName; }
+            get { return HighScoreGame.Cards.Name; }
         }
 
         public int HighScore
@@ -36,7 +34,7 @@ namespace MVCStudy_ViewModels
         }
 
         [ScaffoldColumn(false)]
-        public Game HighScoreGame { get; set; }
+        public ViewModel_Game HighScoreGame { get; set; }
 
     }
 }

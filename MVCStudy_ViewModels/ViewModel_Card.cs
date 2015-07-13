@@ -7,15 +7,12 @@ using System.Drawing;
 using System.ComponentModel.DataAnnotations;
 namespace MVCStudy_ViewModels
 {
-    public class Card
+    public class ViewModel_Card
     {
        [Key]
        public Guid UniqueID { get; set; }
 
        public Bitmap Image { get; set; }
 
-       public bool Matched { get; set; }
-
-       public Guid SetID { get; set; }
     }
 }
