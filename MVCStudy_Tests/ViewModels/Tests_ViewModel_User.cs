@@ -19,7 +19,7 @@ namespace MVCStudy_Tests.ViewModels
             mUser.HighScoreGame =new ViewModel_Game();
             mUser.HighScoreGame.Cards = new ViewModel_CardSet();
             var sID = Guid.NewGuid();
-            mUser.HighScoreGame.Cards.AddRange(Enumerable.Range(0, 50).Select(x => new ViewModel_Card{UniqueID = Guid.NewGuid()});
+            mUser.HighScoreGame.Cards.AddRange(Enumerable.Range(0, 50).Select(x => new ViewModel_Card{UniqueID = Guid.NewGuid()}));
             mUser.Name = "Joe";
             mUser.Password = "$assaFr@s5";
         }

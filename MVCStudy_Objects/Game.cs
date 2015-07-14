@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVCStudy_Objects
 {
-    class Game
+   public class Game
     {
         [Key]
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

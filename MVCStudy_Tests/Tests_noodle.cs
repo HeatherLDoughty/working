@@ -145,5 +145,88 @@ namespace MVCStudy_Tests
             }
             return nums[nums.Count() - 1];
         }
+
+//You start with a two dimensional grid of cells, where each cell is either alive or dead. 
+//In this version of the problem, the grid is finite, and no life can exist off the edges. 
+
+//When calcuating the next generation of the grid, follow these rules:
+
+//   1. Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+//   2. Any live cell with more than three live neighbours dies, as if by overcrowding.
+//   3. Any live cell with two or three live neighbours lives on to the next generation.
+//   4. Any dead cell with exactly three live neighbours becomes a live cell.
+//You should write a program that can accept an arbitrary grid of cells, 
+        ///and will output a similar grid showing the next generation
+        ///
+
+    [Test]
+        public void Test_GameOfLife()
+        {
+            bool[] row1 = { false, false, false, false ,false};
+            bool[] row2 = { false, true, true, false,false };
+            bool[] row3 = { false, true, false, false,false };
+            bool[] row4 = { false, true, true,false,false };
+            bool[] row5 = { false, false, false, false ,false};
+            bool[][] grid = { row1, row2, row3, row4, row5 };
+
+            bool[][] rslt = GameOfLife(grid);
+
+            Assert.AreEqual(4, rslt.Select(x => x.Count(y => y == true)).Sum());
+        }
+
+
+    private bool[][] GameOfLife(bool[][] grid)
+    {
+        IEnumerable<int> range = Enumerable.Range(0, grid.Count());
+        bool[][] rslt = range.Select(x => range.Select(y => false).ToArray()).ToArray();
+
+        
+        for (int i = 0; i < grid.Count(); i++)
+        {
+            bool[] rw = (bool[])grid[i];
+            bool[] rwAbove = i - 1 >= 0 ? (bool[]) grid[i-1]: null;
+            bool[] rwBelow = i + 1 < grid.Count() ? (bool[])grid[i + 1] : null;
+            for (int j = 0; j < rw.Count(); j++){rslt[i][j] = IsAlive(j, rw, rwAbove, rwBelow);}
+        }
+
+            return rslt;
+    }
+
+    private bool IsAlive(int idx, bool[] rw, bool[] rwAbove, bool[] rwBelow)
+    {
+        int livingNeighbors = 0;
+        bool imAlive = rw[idx];
+        
+        livingNeighbors += CountRow(rw, idx);
+        livingNeighbors += CountRow(rwAbove, idx);
+        livingNeighbors += CountRow(rwBelow, idx);
+
+        if (imAlive) livingNeighbors -= 1; //dont count yourself
+
+        if (livingNeighbors == 3) return true;
+        if (livingNeighbors < 2 || livingNeighbors > 3) return false;
+        return imAlive;
+    }
+
+
+    private int CountRow(bool[] rw, int idx)
+    {
+        if (rw == null) return 0;
+
+        int? previdx = idx - 1 < 0 ? (int?)null : idx - 1;
+        int? nextidx = idx + 1 >= rw.Count() ? (int?)null : idx + 1;
+        int livingNeighbors = 0;
+        if (rw[idx]) { livingNeighbors += 1; }
+        livingNeighbors += CountNeighbor(rw, previdx);
+        livingNeighbors += CountNeighbor(rw, nextidx);
+        return livingNeighbors;
+
+    }
+    private int CountNeighbor(bool[] rw, int? idx)
+    {
+        if (idx.HasValue && rw[idx.Value]) { return 1; }
+        return 0;
+    }
+
     }
 }
