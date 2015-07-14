@@ -10,8 +10,7 @@ namespace MVCStudy_Objects
     public class CardSet : List<Card>
     {
        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
+       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         protected Guid mUniqueID;
         public Guid UniqueID { get { return mUniqueID; } }
 
@@ -20,11 +19,9 @@ namespace MVCStudy_Objects
         protected int mTimesplayed;
         public int TimesPlayed { get { return mTimesplayed; } }
 
+        [ForeignKey("UserID")]
         protected User mUser;
         public User User { get { return mUser; } }
-
-        protected Game mHighScoreGame;
-        public Game HighScoreGame {get{return mHighScoreGame;}}
         
     }
 }
